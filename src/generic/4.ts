@@ -1,14 +1,14 @@
 /*
   Використовуйте generics та інтерфейси, щоб виправити помилку в наступних класах:
 */
-
-class Component<T extends { title: string }> {
-  // property: T;
-  constructor(public props: T) {
-    // this.property = props;
-  }
+interface Props {
+  title: string;
 }
-class Page extends Component {
+class Component<T> {
+  constructor(public props: T) {}
+}
+
+class Page extends Component<Props> {
   pageInfo() {
     console.log(this.props.title);
   }
